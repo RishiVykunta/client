@@ -85,7 +85,25 @@
     transition:background .25s ease;
   }
   .nav-cta:hover{background:var(--plum-deep);}
-  .menu-toggle{display:none;background:none;border:0;font-size:24px;color:var(--plum);cursor:pointer;}
+  .menu-toggle{display:none;background:none;border:0;font-size:24px;color:var(--plum);cursor:pointer;line-height:1;}
+
+  .mobile-panel{
+    display:none;
+    position:absolute;top:100%;left:0;right:0;
+    background:var(--cream);
+    border-bottom:1px solid var(--line);
+    box-shadow:0 16px 30px rgba(36,25,36,0.1);
+    padding:8px 24px 24px;
+  }
+  .mobile-panel.open{display:block;}
+  .mobile-panel a{
+    display:block;padding:14px 0;font-size:15px;color:var(--plum);
+    border-bottom:1px solid var(--line);
+  }
+  .mobile-panel a:last-of-type{border-bottom:none;}
+  .mobile-panel .nav-cta{
+    display:inline-flex;margin-top:16px;
+  }
 
   /* ---------- HERO ---------- */
   .hero{
@@ -146,8 +164,12 @@
     position:absolute;left:28px;right:28px;bottom:28px;color:var(--cream);z-index:2;
   }
   .hero-quote p.display{
-    font-size:19px;font-style:italic;margin-bottom:6px;
-  }
+    font-size:19px;
+    font-style:italic;
+    margin-bottom:6px;
+    color:#ffffff;   /* Change this to any color */
+}
+  
   .hero-quote span{font-size:12px;letter-spacing:0.06em;opacity:0.85;}
 
   /* ---------- MISSION STRIP ---------- */
@@ -363,8 +385,16 @@
       <a href="#stories">Stories</a>
     </div>
     <a href="#contact" class="nav-cta">Get Support</a>
-    <button class="menu-toggle" aria-label="Menu">☰</button>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">☰</button>
   </nav>
+  <div class="mobile-panel" id="mobilePanel">
+    <a href="#about">About</a>
+    <a href="#programs">Programs</a>
+    <a href="#journey">Journey</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#stories">Stories</a>
+    <a href="#contact" class="btn nav-cta">Get Support</a>
+  </div>
 </header>
 
 <section class="hero" style="padding:0;">
@@ -377,7 +407,7 @@
       <a href="#programs" class="btn btn-ghost">See Our Programs</a>
     </div>
   </div>
-  <div class="hero-media">
+ <div class="hero-media">
     <img src="https://res.cloudinary.com/dqcxekzxn/image/upload/v1783654862/download_2_fdysec.jpg" alt="Hero Image">
     <div class="hero-quote">
       <p class="display">"I didn't need to be fixed. I needed to be heard."</p>
@@ -584,5 +614,23 @@
   </div>
 </footer>
 
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const mobilePanel = document.getElementById('mobilePanel');
+
+  menuToggle.addEventListener('click', () => {
+    const isOpen = mobilePanel.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', isOpen);
+    menuToggle.textContent = isOpen ? '✕' : '☰';
+  });
+
+  mobilePanel.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobilePanel.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.textContent = '☰';
+    });
+  });
+</script>
 </body>
 </html>
