@@ -378,7 +378,10 @@
     .strip-item{flex-direction:column; gap:8px; padding-right:0;}
     .strip-item .num{margin-bottom:0;}
     
-    .programs-grid{grid-template-columns:1fr;}
+    .programs-grid{grid-template-columns:repeat(2, 1fr);}
+    .program-card{padding: 24px 16px;}
+    .program-card h3{font-size: 16px; margin: 12px 0 8px;}
+    .program-card p{font-size: 13px;}
     .journey-path{grid-template-columns:1fr; row-gap:32px;}
     
     .gallery-grid{grid-template-columns:1fr;}
@@ -492,13 +495,13 @@
       </div>
       <div class="program-card">
         <span class="pnum">03</span>
-        <h3>Mindset Transformation</h3>
-        <p>Replace self-doubt with confidence and positive habits.</p>
+        <h3>Mentorship</h3>
+        <p>One-on-one pairing with women who've walked the path before you.</p>
       </div>
-      <div class="program-card">
+      <div class="program-card" style="background:var(--blush);">
         <span class="pnum">04</span>
-        <h3>Women’s Empowerment</h3>
-        <p>Discover your purpose, strength, and inner power.</p>
+        <h3>Community Events</h3>
+        <p>Meetups, workshops, and celebrations that keep the circle connected.</p>
       </div>
     </div>
   </div>
