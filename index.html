@@ -51,13 +51,19 @@
 
   /* ---------- NAV ---------- */
   header{
-    position:sticky;top:0;z-index:50;
-    background:#FBF6F0; /* Solid background fixes mix-blend-mode multiply bug on mobile browsers */
-    border-bottom:1px solid var(--line);
+    position:sticky;top:15px;z-index:50;
+    background:rgba(251, 246, 240, 0.85); /* Slightly transparent for glass effect */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border:1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    border-radius: 40px;
+    max-width: 90%;
+    margin: 15px auto;
   }
   nav{
     display:flex;align-items:center;justify-content:space-between;
-    padding:20px 32px;max-width:var(--max);margin:0 auto;
+    padding:10px 24px;max-width:var(--max);margin:0 auto;
   }
   .logo{
     font-family:'Fraunces', serif;
@@ -392,7 +398,7 @@
 <header>
   <nav>
     <a href="#" class="logo">
-      <img src="https://res.cloudinary.com/ugws99t1/image/upload/v1785422131/logo_lujmvp.jpg" alt="Bloom with Simaran" style="max-height: 70px; width: auto; mix-blend-mode: multiply;">
+      <img src="https://res.cloudinary.com/ugws99t1/image/upload/v1785422131/logo_lujmvp.jpg" alt="Bloom with Simaran" style="max-height: 45px; width: auto; mix-blend-mode: multiply;">
     </a>
     <div class="nav-links">
       <a href="#about">About</a>
